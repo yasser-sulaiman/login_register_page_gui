@@ -1,1 +1,1 @@
-# login_register_page_gui
+login and register pages with python Tkinter module and sqlite3 db
