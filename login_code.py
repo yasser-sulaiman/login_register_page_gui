@@ -6,6 +6,8 @@ def loginf():
     conn = sql3.connect('login.db')
     #create cursor
     cursor = conn.cursor()
+    
+    #checking if the entered info are in the database or not
     cursor.execute("""
     SELECT email, password FROM pers_info
     WHERE password = :user_pass AND email = :user_email
@@ -17,12 +19,12 @@ def loginf():
     else:
         response = messagebox.showerror('Unvalid email or password', 'Please check your email and password')
         tk.Label(root, text = response).grid(row =1, column = 1, pady = 10)
-    #commit changes
-    conn.commit()
+    #closing the database
     conn.close()
 
     
 def savef():
+    #requirments for email and password to be satisfied
     if len(email_new.get())>5:
         if len(password_new.get())>=8:
             if password_new.get() == password_new_confirm.get():
@@ -84,6 +86,8 @@ def sign_up():
 conn = sql3.connect('login.db')
 #create cursor
 cursor = conn.cursor()
+
+#creating table if not exist
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS pers_info (
 email text unique,
@@ -92,6 +96,7 @@ password text)
 #commit changes
 conn.commit()
 conn.close()
+
 
 root = tk.Tk()
 root.title('login page')
