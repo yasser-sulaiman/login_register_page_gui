@@ -18,7 +18,6 @@ def loginf():
         tk.Label(root, text = response).grid(row =1, column = 1, pady = 10)
     else:
         response = messagebox.showerror('Unvalid email or password', 'Please check your email and password')
-        tk.Label(root, text = response).grid(row =1, column = 1, pady = 10)
     #closing the database
     conn.close()
 
@@ -40,20 +39,14 @@ def savef():
                     conn.close()
                     signup.destroy()
                 except:
-                    response = messagebox.showwarning('exist email', 'the email you have entered is already exists')
-                    tk.Label(signup, text = response).grid(row =1, column = 1, pady = 10)
-                
+                    response = messagebox.showwarning('exist email', 'the email you have entered is already exists')               
             else:
-                response = messagebox.showwarning('unmatched passwords', 'Please control your passwords')
-                tk.Label(signup, text = response).grid(row =1, column = 1, pady = 10)
-                
+                response = messagebox.showwarning('unmatched passwords', 'Please control your passwords')               
         else:
-            response = messagebox.showwarning('Unvalid password', 'The password should be at least 8 charecters')
-            tk.Label(signup, text = response).grid(row =1, column = 1, pady = 10)
-            
+            response = messagebox.showwarning('Unvalid password', 'The password should be at least 8 charecters')           
     else:
         response = messagebox.showwarning('Unvalid Email', 'Please try with different email address')
-        tk.Label(signup, text = response).grid(row =1, column = 1, pady = 10)
+        #tk.Label(signup, text = response).grid(row =1, column = 1, pady = 10)
         
 
 def sign_up():
